@@ -1,6 +1,7 @@
 package com.evento.entities;
 
-import java.time.LocalDate;
+import java.io.Serializable;
+import java.time.Instant;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,14 +13,15 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_bloco")
-public class Bloco {
+public class Bloco implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private LocalDate inicio;
-	private LocalDate fim;
+	private Instant inicio;
+	private Instant fim;
 	
 	
 	@ManyToOne
@@ -30,7 +32,7 @@ public class Bloco {
 
 	}
 
-	public Bloco(Long id, LocalDate inicio, LocalDate fim, Atividade atividade) {
+	public Bloco(Long id, Instant inicio, Instant fim, Atividade atividade) {
 		this.id = id;
 		this.inicio = inicio;
 		this.fim = fim;
@@ -45,19 +47,19 @@ public class Bloco {
 		this.id = id;
 	}
 
-	public LocalDate getInicio() {
+	public Instant getInicio() {
 		return inicio;
 	}
 
-	public void setInicio(LocalDate inicio) {
+	public void setInicio(Instant inicio) {
 		this.inicio = inicio;
 	}
 
-	public LocalDate getFim() {
+	public Instant getFim() {
 		return fim;
 	}
 
-	public void setFim(LocalDate fim) {
+	public void setFim(Instant fim) {
 		this.fim = fim;
 	}
 

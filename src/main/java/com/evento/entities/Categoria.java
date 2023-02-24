@@ -1,5 +1,6 @@
 package com.evento.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,8 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_categoria")
-public class Categoria {
+public class Categoria implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
